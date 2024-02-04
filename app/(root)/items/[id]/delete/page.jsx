@@ -10,6 +10,7 @@ const Page = () => {
   const { id } =useParams()
   const router = useRouter()
 
+  // gets data of a single object using its id 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,7 +22,7 @@ const Page = () => {
     };
 
     fetchData();
-  }, [id]); // The empty dependency array ensures that this effect runs once when the component mounts
+  }, [id]); 
 
   const handleDelete = async(id)=>{
     try{

@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Container from './shared/container'
 import ProductTable from './product-table'
 import Link from 'next/link'
-import { collection, getDoc, onSnapshot, query } from 'firebase/firestore'
+import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db } from '@/lib/firebase/config'
 
 const Products = () => {
   const [ items, setProducts] = useState([])
 
+  // gets to read all the data from firebase and display when the page loads 
   useEffect(() => {
     const collectionRef =  collection(db, 'products')
     const q = query(collectionRef)

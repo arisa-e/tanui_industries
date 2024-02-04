@@ -19,6 +19,7 @@ const ProductForm = ({ type }) => {
   const router = useRouter();
   const { id } = useParams();
 
+  // this only works when the update button is click and the form has an id 
   useEffect(() => {
     const fetchData = async () => {
       if (id) {
@@ -46,6 +47,7 @@ const ProductForm = ({ type }) => {
   
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // store all the data from the form 
     setForm((prevForm) => ({
       ...prevForm,
       [name]: value,
@@ -56,10 +58,12 @@ const ProductForm = ({ type }) => {
     e.preventDefault();
     if (form.name !== '' && form.quantity !== '' && form.price !== '') {
       const updatedData = { ...data, ...form };
+      // when the button type is create 
       if (type === 'Create') {
         setLoading(true);
         addData(form);
       }
+      // when the button type is update
       if (type === 'Update') {
         setLoading(true);
         try{

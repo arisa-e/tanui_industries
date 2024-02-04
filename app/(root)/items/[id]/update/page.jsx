@@ -1,4 +1,3 @@
-import getData from '@/app/api/getData'
 import ProductForm from '@/components/product-form'
 import React from 'react'
 
